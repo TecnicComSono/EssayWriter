@@ -22,7 +22,7 @@
 
     // Função para carregar o Oneko.js
     function OnekoLoad() {
-        const GIF_URL = "https://doritus.mmrcoss.tech/assets/js/oneko.gif";
+        const GIF_URL = "https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/oneko.gif";
 
         (function oneko() {
             const nekoEl = document.createElement("div");
