@@ -17,5 +17,18 @@ function DRLoad() {
     document.head.appendChild(script);
 }
 
-// Carregar Dark Reader
+// Função para carregar o Oneko.js
+function OnekoLoad() {
+    const script = document.createElement('script');
+    script.src = "https://cdn.jsdelivr.net/gh/oneko/oneko.js";
+    script.onload = () => {
+        console.log("Oneko.js carregado.");
+        const oneko = new Oneko();
+        oneko.start();
+    };
+    document.head.appendChild(script);
+}
+
+// Carregar Dark Reader e Oneko.js
 DRLoad();
+OnekoLoad();
