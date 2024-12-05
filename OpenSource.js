@@ -47,7 +47,7 @@ loadOneko();
             onekoEl.style.left = '16px';
             onekoEl.style.top = '16px';
             onekoEl.style.display = 'block';  // Assegura que o elemento esteja visível
-            onekoEl.style.backgroundImage = 'url("https://raw.githubusercontent.com/TecnicComSono/Platform-Destroyer-Client/refs/heads/main/oneko.gif")';  // URL do seu GIF
+            onekoEl.style.backgroundImage = 'url("https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/oneko.gif")';  // URL do seu GIF
             clearInterval(interval);  // Interrompe o loop assim que o oneko for encontrado
         }
     }, 100);  // Verifica a cada 100ms se o elemento oneko foi carregado
