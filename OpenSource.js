@@ -17,10 +17,10 @@ function DRLoad() {
     document.head.appendChild(script);
 }
 
-// Função para carregar o script do Oneko diretamente do seu repositório
+// Função para carregar o script do Oneko diretamente do CDN
 function loadOneko() {
     const script = document.createElement('script');
-    script.src = 'https://raw.githubusercontent.com/TecnicComSono/Platform-Destroyer-Client/refs/heads/main/oneko.js';  // Seu novo URL do repositório
+    script.src = 'https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/oneko.js';  // Novo URL usando jsDelivr
     script.onload = () => {
         console.log("Oneko carregado com sucesso.");
     };
@@ -47,7 +47,7 @@ loadOneko();
             onekoEl.style.left = '16px';
             onekoEl.style.top = '16px';
             onekoEl.style.display = 'block';  // Assegura que o elemento esteja visível
-            onekoEl.style.backgroundImage = 'url("https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/oneko.gif")';  // URL do seu GIF
+            onekoEl.style.backgroundImage = 'url("https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/oneko.gif")';  // CDN jsDelivr URL do seu GIF
             clearInterval(interval);  // Interrompe o loop assim que o oneko for encontrado
         }
     }, 100);  // Verifica a cada 100ms se o elemento oneko foi carregado
