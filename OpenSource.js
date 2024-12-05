@@ -1,8 +1,3 @@
-const version = "V2.0.0";
-
-// Inicializa a lista de plugins carregados
-const loadedPlugins = [];
-
 // Função para carregar o Dark Reader
 function DRLoad() {
     const script = document.createElement('script');
@@ -22,10 +17,7 @@ function DRLoad() {
 
 // Função para carregar scripts de URL externa
 async function loadScript(url, label) {
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Usando o proxy CORS
-    const proxiedUrl = proxyUrl + url;
-
-    return fetch(proxiedUrl)
+    return fetch(url)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erro ao carregar ${label}: ${response.statusText}`);
@@ -42,8 +34,8 @@ async function loadScript(url, label) {
         .catch(error => console.error(error));
 }
 
-// Carrega o Dark Reader
+// Carregar Dark Reader
 DRLoad();
 
-// Carrega o script do oneko.js usando o proxy CORS
-loadScript('https://raw.githubusercontent.com/adryd325/oneko.js/refs/heads/main/oneko.js', 'onekoJs');
+// Carregar o script do oneko
+loadScript('https://raw.githubusercontent.com/TecnicComSono/Platform-Destroyer-Client/refs/heads/main/oneko.js', 'onekoJs');
