@@ -1,6 +1,7 @@
 const version = 'V2.0.0';
+let loadedPlugins = [];
 
-// Função para carregar o Dark Reader
+
 function DRLoad() {
     const script = document.createElement('script');
     script.src = "https://cdn.jsdelivr.net/npm/darkreader@4.9.92/darkreader.min.js";
@@ -17,38 +18,26 @@ function DRLoad() {
     document.head.appendChild(script);
 }
 
-// Função para carregar o script do Oneko diretamente do CDN
-function loadOneko() {
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/oneko.js';  // Novo URL usando jsDelivr
-    script.onload = () => {
-        console.log("Oneko carregado com sucesso.");
-    };
-    script.onerror = (e) => {
-        console.error("Erro ao carregar o script do Oneko", e);
-    };
-    document.head.appendChild(script);
-}
+// Misc
 
-// Carregar Dark Reader
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+const playAudio = url => { const audio = new Audio(url); audio.play(); };
+const checkCollision = (obj1, obj2) => !( obj1.right < obj2.left || obj1.left > obj2.right || obj1.bottom < obj2.top || obj1.top > obj2.bottom );
+const findAndClickByClass = className => { const element = document.querySelector(`.${className}`); if (element) { element.click(); sendToast(`⭕ Pressionando ${className}...`, 1000); } }
+
+function sendToast(text, duration=5000, gravity='bottom') { Toastify({ text: text, duration: duration, gravity: gravity, position: "center", stopOnFocus: true, style: { background: "#000000" } }).showToast(); };
+
+async function showSplashScreen() { splashScreen.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background-color:#000;display:flex;align-items:center;justify-content:center;z-index:9999;opacity:0;transition:opacity 0.5s ease;user-select:none;color:white;font-family:MuseoSans,sans-serif;font-size:30px;text-align:center;"; splashScreen.innerHTML = '<span style="color:white;">KHANWARE</span><span style="color:#72ff72;">.SPACE</span>'; document.body.appendChild(splashScreen); setTimeout(() => splashScreen.style.opacity = '1', 10);};
+async function hideSplashScreen() { splashScreen.style.opacity = '0'; setTimeout(() => splashScreen.remove(), 1000); };
+
+async function loadScript(url, label) { return fetch(url).then(response => response.text()).then(script => { loadedPlugins.push(label); eval(script); }); }
+async function loadCss(url) { return new Promise((resolve) => { const link = document.createElement('link'); link.rel = 'stylesheet'; link.type = 'text/css'; link.href = url; link.onload = () => resolve(); document.head.appendChild(link); }); }
+
 DRLoad();
 
-// Carregar o script do Oneko
-loadOneko();
-
-// Ajuste para garantir a visibilidade do Oneko
-(function() {
-    const interval = setInterval(() => {
-        const onekoEl = document.getElementById('oneko');
-        if (onekoEl) {
-            // Garantir que o elemento seja visível e posicionado corretamente
-            onekoEl.style.zIndex = '999999';  // Coloca acima de outros elementos
-            onekoEl.style.position = 'fixed';
-            onekoEl.style.left = '16px';
-            onekoEl.style.top = '16px';
-            onekoEl.style.display = 'block';  // Assegura que o elemento esteja visível
-            onekoEl.style.backgroundImage = 'url("https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/oneko.gif")';  // CDN jsDelivr URL do seu GIF
-            clearInterval(interval);  // Interrompe o loop assim que o oneko for encontrado
-        }
-    }, 100);  // Verifica a cada 100ms se o elemento oneko foi carregado
-})();
+loadScript('https://raw.githubusercontent.com/adryd325/oneko.js/refs/heads/main/oneko.js', 'onekoJs')
+.then(() => {
+    onekoEl = document.getElementById('oneko'); 
+    onekoEl.style.backgroundImage = "url('https://raw.githubusercontent.com/adryd325/oneko.js/main/oneko.gif')";
+    onekoEl.style.display = "none";
+});
