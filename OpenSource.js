@@ -20,6 +20,8 @@ function DRLoad() {
 
 // Misc
 
+function sendToast(text, duration=5000, gravity='bottom') { Toastify({ text: text, duration: duration, gravity: gravity, position: "center", stopOnFocus: true, style: { background: "#000000" } }).showToast(); };
+
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 const playAudio = url => { const audio = new Audio(url); audio.play(); };
 const checkCollision = (obj1, obj2) => !( obj1.right < obj2.left || obj1.left > obj2.right || obj1.bottom < obj2.top || obj1.top > obj2.bottom );
@@ -41,3 +43,17 @@ loadScript('https://raw.githubusercontent.com/adryd325/oneko.js/refs/heads/main/
     onekoEl.style.backgroundImage = "url('https://raw.githubusercontent.com/adryd325/oneko.js/main/oneko.gif')";
     onekoEl.style.display = "none";
 });
+
+loadCss('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css', 'toastifyCss');
+loadScript('https://cdn.jsdelivr.net/npm/toastify-js', 'toastifyPlugin')
+.then(async () => {
+    sendToast("🌿 Khanware injetado com sucesso!");
+    playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/gcelzszy.wav');
+    await delay(500);
+    sendToast(`⭐ Bem vindo(a) de volta: ${user.nickname}`);
+    loadedPlugins.forEach(plugin => sendToast(`🪝 ${plugin} Loaded!`, 2000, 'top') );
+    hideSplashScreen();
+    setupMenu();
+    setupMain();
+    console.clear();
+})
