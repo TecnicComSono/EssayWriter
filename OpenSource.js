@@ -103,110 +103,27 @@ DRLoad();
                 [-1, -1],
             ],
         };
-        function create() {
-            nekoEl.id = "oneko";
-            nekoEl.style.width = "32px";
-            nekoEl.style.height = "32px";
-            nekoEl.style.position = "fixed";
-            nekoEl.style.zIndex = "999999"; // Garante que esteja acima de todos os elementos.
-            nekoEl.style.backgroundImage = `url('${GIF_URL}')`;
-            nekoEl.style.imageRendering = "pixelated";
-            nekoEl.style.left = "16px";
-            nekoEl.style.top = "16px";
+function create() {
+    console.log("Criando o oneko..."); // Log para verificar a execução
+    const nekoEl = document.createElement("div");
+    nekoEl.id = "oneko";
+    nekoEl.style.width = "32px";
+    nekoEl.style.height = "32px";
+    nekoEl.style.position = "fixed";
+    nekoEl.style.zIndex = "999999";
+    nekoEl.style.backgroundImage = `url('${GIF_URL}')`;
+    nekoEl.style.imageRendering = "pixelated";
+    nekoEl.style.left = "16px";
+    nekoEl.style.top = "16px";
 
-            document.body.appendChild(nekoEl);
+    // Tenta adicionar o elemento ao body
+    try {
+        document.body.appendChild(nekoEl);
+        console.log("Elemento oneko adicionado ao DOM.");
+    } catch (error) {
+        console.error("Erro ao adicionar o elemento oneko:", error);
+    }
+}
 
-            document.onmousemove = (event) => {
-                mousePosX = event.clientX;
-                mousePosY = event.clientY;
-            };
-
-            window.onekoInterval = setInterval(frame, 100);
-        }
-
-        function setSprite(name, frame) {
-            const sprite = spriteSets[name][frame % spriteSets[name].length];
-            nekoEl.style.backgroundPosition = `${sprite[0] * 32}px ${
-                sprite[1] * 32
-        }px`;
-        }
-
-        function resetIdleAnimation() {
-            idleAnimation = null;
-            idleAnimationFrame = 0;
-        }
-
-        function idle() {
-            idleTime += 1;
-
-            if (
-                idleTime > 10 &&
-                Math.floor(Math.random() * 200) === 0 &&
-                idleAnimation == null
-            ) {
-                idleAnimation = ["sleeping", "scratch"][
-                    Math.floor(Math.random() * 2)
-                ];
-            }
-
-            switch (idleAnimation) {
-                case "sleeping":
-                    if (idleAnimationFrame < 8) {
-                        setSprite("tired", 0);
-                        break;
-                    }
-                    setSprite("sleeping", Math.floor(idleAnimationFrame / 4));
-                    if (idleAnimationFrame > 192) {
-                        resetIdleAnimation();
-                    }
-                    break;
-                case "scratch":
-                    setSprite("scratch", idleAnimationFrame);
-                    if (idleAnimationFrame > 9) {
-                        resetIdleAnimation();
-                    }
-                    break;
-                default:
-                    setSprite("idle", 0);
-                    return;
-            }
-            idleAnimationFrame += 1;
-        }
-
-        function frame() {
-            frameCount += 1;
-            const diffX = nekoPosX - mousePosX;
-            const diffY = nekoPosY - mousePosY;
-            const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
-
-            if (distance < nekoSpeed || distance < 48) {
-                idle();
-                return;
-            }
-
-            idleAnimation = null;
-            idleAnimationFrame = 0;
-
-            if (idleTime > 1) {
-                setSprite("alert", 0);
-                idleTime = Math.min(idleTime, 7);
-                idleTime -= 1;
-                return;
-            }
-
-            let direction = diffY / distance > 0.5 ? "N" : "";
-            direction += diffY / distance < -0.5 ? "S" : "";
-            direction += diffX / distance > 0.5 ? "W" : "";
-            direction += diffX / distance < -0.5 ? "E" : "";
-            setSprite(direction, frameCount);
-
-            nekoPosX -= (diffX / distance) * nekoSpeed;
-            nekoPosY -= (diffY / distance) * nekoSpeed;
-
-            nekoEl.style.left = `${nekoPosX - 16}px`;
-            nekoEl.style.top = `${nekoPosY - 16}px`;
-        }
-
-        create();
     })();
 })();
