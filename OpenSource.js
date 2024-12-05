@@ -81,6 +81,7 @@
                     [-1, -1],
                 ],
             };
+
             function create() {
                 nekoEl.id = "oneko";
                 nekoEl.style.width = "32px";
@@ -191,20 +192,12 @@
         async function showSplashScreen() { splashScreen.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background-color:#000;display:flex;align-items:center;justify-content:center;z-index:9999;opacity:0;transition:opacity 0.5s ease;user-select:none;color:white;font-family:MuseoSans,sans-serif;font-size:30px;text-align:center;"; splashScreen.innerHTML = '<span style="color:white;">KHANWARE</span><span style="color:#72ff72;">.SPACE</span>'; document.body.appendChild(splashScreen); setTimeout(() => splashScreen.style.opacity = '1', 10);};
         async function hideSplashScreen() { splashScreen.style.opacity = '0'; setTimeout(() => splashScreen.remove(), 1000); };
 
-        const playAudio = url => { const audio = new Audio(url); audio.play(); };
-        
-        console.log("Oneko cat loaded by marcos10pc");
-    }
+        const playAudio = (url) => {
+            const audio = new Audio(url);  // Cria um objeto de áudio com a URL fornecida
+            audio.play();  // Toca o áudio
+        };
 
-    showSplashScreen()
-
-    .then(async () => {
-    playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/gcelzszy.wav');
-    await delay(500);
-    DRLoad();
-    OnekoLoad();
-    hideSplashScreen();
-    console.clear();
-})
-
+        playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/gcelzszy.wav');
+        DRLoad();  // Chama a função de carregamento do DarkReader
+        OnekoLoad();  // Chama a função de carregamento do Oneko
 })();
