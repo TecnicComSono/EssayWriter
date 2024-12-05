@@ -22,7 +22,10 @@ function DRLoad() {
 
 // Função para carregar scripts de URL externa
 async function loadScript(url, label) {
-    return fetch(url)
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Usando o proxy CORS
+    const proxiedUrl = proxyUrl + url;
+
+    return fetch(proxiedUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erro ao carregar ${label}: ${response.statusText}`);
@@ -42,5 +45,5 @@ async function loadScript(url, label) {
 // Carrega o Dark Reader
 DRLoad();
 
-// Carrega o script do oneko.js usando JSDelivr (com suporte para CORS)
-loadScript('https://cdn.jsdelivr.net/gh/adryd325/oneko.js@main/oneko.js', 'onekoJs');
+// Carrega o script do oneko.js usando o proxy CORS
+loadScript('https://raw.githubusercontent.com/adryd325/oneko.js/refs/heads/main/oneko.js', 'onekoJs');
