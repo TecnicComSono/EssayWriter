@@ -197,11 +197,14 @@
     }
 
     showSplashScreen()
-    await delay(5000)
-    playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/gcelzszy.wav');
-    hideSplashScreen()
 
+    .then(async () => {
+    playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/gcelzszy.wav');
+    await delay(500);
     DRLoad();
     OnekoLoad();
+    hideSplashScreen();
+    console.clear();
+})
 
 })();
