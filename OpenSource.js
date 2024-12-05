@@ -144,12 +144,33 @@
     console.log("Oneko cat loaded by marcos10pc");
   }
 
-        const playAudio = (url) => {
-            const audio = new Audio(url);  // Cria um objeto de áudio com a URL fornecida
-            audio.play();  // Toca o áudio
-        };
+  //misc   
 
-        playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/gcelzszy.wav');
+  function sendToast(text, duration=5000, gravity='bottom') { Toastify({ text: text, duration: duration, gravity: gravity, position: "center", stopOnFocus: true, style: { background: "#000000" } }).showToast(); };
+  
+  const playAudio = (url) => {
+      const audio = new Audio(url);  // Cria um objeto de áudio com a URL fornecida
+      audio.play();  // Toca o áudio
+  };
+
+// INJECT
+  playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/gcelzszy.wav');
   DRLoad();
   OnekoLoad();
+  let toast = document.createElement('div');
+toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:15px 30px;background:#000;color:#fff;border-radius:5px;box-shadow:0 2px 10px rgba(0,0,0,.5);font-family:Arial,sans-serif;font-size:16px;text-align:center;opacity:0;transition:opacity .5s';
+toast.innerText = '🍂 Doritus.Client V';
+document.body.appendChild(toast);
+
+setTimeout(() => {
+  toast.style.opacity = 1;
+}, 100);
+
+setTimeout(() => {
+  toast.style.opacity = 0;
+  setTimeout(() => {
+    document.body.removeChild(toast);
+  }, 500);
+}, 3000);
+
 })();
