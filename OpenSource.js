@@ -75,7 +75,7 @@
         nekoEl.style.height = "32px";
         nekoEl.style.position = "fixed";
         nekoEl.style.zIndex = "999999";
-        nekoEl.style.backgroundImage = `url('${GIF_URL}')`;
+        nekoEl.style.backgroundImage = url('${GIF_URL}');
         nekoEl.style.imageRendering = "pixelated";
         nekoEl.style.left = "16px";
         nekoEl.style.top = "16px";
@@ -90,7 +90,7 @@
 
       function setSprite(name, frame) {
         const sprite = spriteSets[name][frame % spriteSets[name].length];
-        nekoEl.style.backgroundPosition = `${sprite[0] * 32}px ${sprite[1] * 32}px`;
+        nekoEl.style.backgroundPosition = ${sprite[0] * 32}px ${sprite[1] * 32}px;
       }
 
       function resetIdleAnimation() {
@@ -157,8 +157,8 @@
         setSprite(direction, frameCount);
         nekoPosX -= (diffX / distance) * nekoSpeed;
         nekoPosY -= (diffY / distance) * nekoSpeed;
-        nekoEl.style.left = `${nekoPosX - 16}px`;
-        nekoEl.style.top = `${nekoPosY - 16}px`;
+        nekoEl.style.left = ${nekoPosX - 16}px;
+        nekoEl.style.top = ${nekoPosY - 16}px;
       }
 
       create();
@@ -168,8 +168,6 @@
   }
 
   //misc   
-
-  function sendToast(text, duration=5000, gravity='bottom') { Toastify({ text: text, duration: duration, gravity: gravity, position: "center", stopOnFocus: true, style: { background: "#000000" } }).showToast(); };
   
   const playAudio = (url) => {
       const audio = new Audio(url);  // Cria um objeto de áudio com a URL fornecida
@@ -177,23 +175,91 @@
   };
 
 // INJECT
+  
   playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/gcelzszy.wav');
   DRLoad();
   OnekoLoad();
-  let toast = document.createElement('div');
-toast.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:15px 30px;background:#000;color:#fff;border-radius:5px;box-shadow:0 2px 10px rgba(0,0,0,.5);font-family:Arial,sans-serif;font-size:16px;text-align:center;opacity:0;transition:opacity .5s';
-toast.innerText = '🍂 Doritus.Client X Loaded';
-document.body.appendChild(toast);
+  // Função para pegar o nome do usuário
+function getNickname() {
+    const nicknameElement = document.querySelector("#root > div.MuiBox-root.css-z0hhne > div.MuiBox-root.css-a60g7b > div > div.simplebar-wrapper > div.simplebar-mask > div > div > div > div.css-gsuwte > div > div > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.css-ikws8e > div > div.MuiBox-root.css-zg1vud > h5 > span");
 
-setTimeout(() => {
-  toast.style.opacity = 1;
-}, 100);
+    // Verifica se o nome foi encontrado
+    if (nicknameElement) {
+        return nicknameElement.textContent; // Retorna o texto do nome
+    }
+    return "Usuário"; // Retorna "Usuário" caso o nome não seja encontrado
+}
 
-setTimeout(() => {
-  toast.style.opacity = 0;
-  setTimeout(() => {
-    document.body.removeChild(toast);
-  }, 500);
-}, 3000);
+// Função para criar a notificação
+function showToast(message, options = {}) {
+    const {
+        duration = 3000, // Duração padrão de 3 segundos
+        backgroundColor = '#000000', // Fundo preto
+        textColor = '#ffffff', // Texto branco
+        boxShadow = '0 4px 10px rgba(0, 0, 0, 0.25)', // Sombra leve
+        icon = '⭐', // Ícone da estrela por padrão
+        includeNickname = true, // Se deve incluir o nickname ou não
+    } = options;
+
+    // Cria o container
+    const container = createToastContainer();
+
+    // Cria o elemento do toast
+    const toast = document.createElement('div');
+    toast.style.padding = '10px 20px';
+    toast.style.backgroundColor = backgroundColor;
+    toast.style.color = textColor;
+    toast.style.boxShadow = boxShadow;
+    toast.style.fontFamily = 'Arial, sans-serif';
+    toast.style.fontSize = '14px';
+    toast.style.display = 'flex';
+    toast.style.alignItems = 'center';
+    toast.style.gap = '10px'; // Espaçamento entre ícone e texto
+    toast.style.opacity = '0';
+    toast.style.transition = 'opacity 0.3s';
+
+    // Adiciona o ícone (estrela)
+    const iconElement = document.createElement('span');
+    iconElement.innerHTML = icon; // Adiciona o ícone da estrela
+    iconElement.style.fontSize = '16px';
+    iconElement.style.color = textColor;
+    toast.appendChild(iconElement);
+
+    // Adiciona o texto (com o nickname, se necessário)
+    const textElement = document.createElement('span');
+    if (includeNickname) {
+        const nickname = getNickname(); // Pega o nome do usuário
+        textElement.textContent = Olá, ${nickname}; // Mensagem com o nome
+    } else {
+        textElement.textContent = message; // Apenas a mensagem, sem nickname
+    }
+    toast.appendChild(textElement);
+
+    // Adiciona o toast ao container
+    container.appendChild(toast);
+
+    // Faz o toast aparecer
+    setTimeout(() => {
+        toast.style.opacity = '1';
+    }, 10);
+
+    // Remove o toast após a duração especificada
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300); // Aguarda a transição antes de remover
+    }, duration);
+}
+
+// Exemplo de uso:
+// A primeira mensagem com a mensagem "Doritus.Client injetado com sucesso!"
+showToast('Doritus.Client injetado com sucesso!', {
+    icon: '✅', // Ícone de check
+    includeNickname: false, // Não inclui o nome do usuário
+});
+
+// A segunda mensagem com "Seja bem-vindo"
+showToast('Seja bem-vindo!', {
+});
+
 
 })();
