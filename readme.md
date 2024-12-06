@@ -1,4 +1,4 @@
-# 🍂D oritus.Client
+# 🍂Doritus.Client
 ### A new code.
 
 ```js
