@@ -11,7 +11,5 @@ Or use [Doritus Website](https://doritus.mmrcos.tech)
 Copyright (C) 2024 Platform destroyer
 
 <p align="center">
-  <a href="https://emoji.gg/emoji/5349-hellokittybyebye">
-    <img src="https://cdn.discordapp.com/attachments/1312515287911895062/1313500661345947698/imagem_2024-12-03_104102205" width="128px" height="128px" alt="DoritusLogoByeByeeee">
-  </a>
+    <img src="https://cdn.discordapp.com/attachments/1312515287911895062/1313500661345947698/imagem_2024-12-03_104102205-removebg-preview.png?ex=67505c51&is=674f0ad1&hm=bd9dd1463faa4ebefbc1dcb11af3154fadeec47755025494a9629fa0538f785f" alt="DoritusLogo">
 </p>
