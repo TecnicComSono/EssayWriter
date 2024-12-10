@@ -323,4 +323,45 @@
             }
 
             showLoadingScreen();
+
+                // Criando o menu principal "DR"
+var menu = document.createElement('div');
+menu.innerText = 'DR';
+
+// Estilizando o menu principal
+menu.style.position = 'fixed';
+menu.style.top = '10px';
+menu.style.right = '5px';
+menu.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Fundo transparente com uma leve cor
+menu.style.color = 'white';
+menu.style.padding = '10px 70px'; // Espaçamento para a versão do lado direito
+menu.style.borderRadius = '5px';
+menu.style.fontSize = '16px'; // Tamanho da fonte do DR
+menu.style.cursor = 'pointer';
+menu.style.fontFamily = 'Arial, sans-serif';
+menu.style.zIndex = '9999'; // Garantindo que o menu fique acima de todos os outros elementos
+menu.style.textAlign = 'left'; // Alinhando o texto à esquerda
+
+// Criando a variável de versão
+var version = 'v1.0'; // Definindo o valor da versão
+
+// Criando o elemento de versão
+var versionText = document.createElement('span');
+versionText.innerText = version; // A variável version é usada aqui
+versionText.style.fontSize = '8px'; // Tamanho da fonte da versão
+versionText.style.position = 'absolute';
+versionText.style.right = '10px'; // Coloca a versão no lado direito do botão
+versionText.style.top = '50%';
+versionText.style.transform = 'translateY(-50%)'; // Centraliza verticalmente
+versionText.style.color = 'white';
+
+// Aplicando o efeito de blur no fundo da versão
+menu.style.backdropFilter = 'blur(5px)'; // Aplica o efeito de blur no fundo
+
+// Adicionando o texto da versão ao menu
+menu.appendChild(versionText);
+
+// Adicionando o menu ao body da página
+document.body.appendChild(menu);
+
         })();
