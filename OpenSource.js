@@ -1,7 +1,7 @@
         (function() {
             'use strict';
 
-            const version = 'V2.0.0';
+            var version = 'V2.0.0';
 
             // img url
             const novaImagem1 = "https://camo.githubusercontent.com/19cf78ade75350b613c6c3718bf43e7ff879275eaed38d1a7f2607614e2eae8f/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f313331323531353238373931313839353036322f313331333530303636313334353934373639382f696d6167656d5f323032342d31322d30335f3130343130323230352d72656d6f766562672d707265766965772e706e673f65783d36373530356335312669733d363734663061643126686d3d62643964643134363366616134656265666263316463623131616633313534666164656563343737353530323534393461393632396661303533386637383566";
@@ -324,7 +324,7 @@
 
             showLoadingScreen();
 
-                // Criando o menu principal "DR"
+// Criando o menu principal "DR"
 var menu = document.createElement('div');
 menu.innerText = 'DR';
 
@@ -341,9 +341,6 @@ menu.style.cursor = 'pointer';
 menu.style.fontFamily = 'Arial, sans-serif';
 menu.style.zIndex = '9999'; // Garantindo que o menu fique acima de todos os outros elementos
 menu.style.textAlign = 'left'; // Alinhando o texto à esquerda
-
-// Criando a variável de versão
-var version = 'v1.0'; // Definindo o valor da versão
 
 // Criando o elemento de versão
 var versionText = document.createElement('span');
