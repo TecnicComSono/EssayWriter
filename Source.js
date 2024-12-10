@@ -328,13 +328,12 @@
 var menu = document.createElement('div');
 menu.innerText = 'DR';
 
-// Estilizando o menu principal
 menu.style.position = 'fixed';
 menu.style.top = '10px';
 menu.style.right = '5px';
 menu.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Fundo transparente com uma leve cor
 menu.style.color = 'white';
-menu.style.padding = '10px 70px'; // Espaçamento para a versão do lado direito
+menu.style.padding = '5px 70px 5px 40px'; // Espaçamento para a versão do lado direito
 menu.style.borderRadius = '5px';
 menu.style.fontSize = '16px'; // Tamanho da fonte do DR
 menu.style.cursor = 'pointer';
@@ -353,7 +352,7 @@ versionText.style.transform = 'translateY(-50%)'; // Centraliza verticalmente
 versionText.style.color = 'white';
 
 // Aplicando o efeito de blur no fundo da versão
-menu.style.backdropFilter = 'blur(5px)'; // Aplica o efeito de blur no fundo
+menu.style.backdropFilter = 'blur(2px)'; // Aplica o efeito de blur no fundo
 
 // Adicionando o texto da versão ao menu
 menu.appendChild(versionText);
