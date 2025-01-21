@@ -5,7 +5,7 @@
 
   // img url
   const novaImagem1 =
-    "https://camo.githubusercontent.com/19cf78ade75350b613c6c3718bf43e7ff879275eaed38d1a7f2607614e2eae8f/68747470733a2f2f63646e2e646973636f72646170702e636f6d2f6174746163686d656e74732f313331323531353238373931313839353036322f313331333530303636313334353934373639382f696d6167656d5f323032342d31322d30335f3130343130323230352d72656d6f766562672d707265766965772e706e673f65783d36373530356335312669733d363734663061643126686d3d62643964643134363366616134656265666263316463623131616633313534666164656563343737353530323534393461393632396661303533386637383566";
+    "https://github.com/TecnicComSono/Platform-Destroyer-Client/blob/main/imagem_2025-01-21_175108452-removebg-preview.png?raw=true";
   const novaImagem2 = novaImagem1;
   const novaImagem3 = novaImagem1;
 
@@ -16,7 +16,7 @@
     "#root > div.MuiBox-root.css-z0hhne > div.MuiBox-root.css-a60g7b > div > div.simplebar-wrapper > div.simplebar-mask > div > div > div > div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-1.css-o37zhb > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-lg-3.css-ja4s3e > img";
   const seletorImagem3 =
     "#root > div.MuiBox-root.css-z0hhne > div.MuiBox-root.css-a60g7b > div > div.simplebar-wrapper > div.simplebar-mask > div > div > div > div.css-gsuwte > div > div > div.css-gsuwte > div > div.MuiGrid-root.MuiGrid-container.css-1d3bbye > div.MuiGrid-root.MuiGrid-container.MuiGrid-item.MuiGrid-spacing-xs-1.MuiGrid-grid-xs-12.css-1k7k5az > div:nth-child(1)";
-
+    const selectMiniLogo = "#root > div.MuiBox-root.css-z0hhne > div.MuiDrawer-root.MuiDrawer-docked.css-1wa2t5h > div > div > div.simplebar-wrapper > div.simplebar-mask > div > div > div > div > div.MuiBox-root.css-1j0h67t > img";
   function alterarImagem(seletor, novaSrc) {
     const imagem = document.querySelector(seletor);
     if (imagem) {
@@ -28,6 +28,7 @@
     alterarImagem(seletorImagem1, novaImagem1);
     alterarImagem(seletorImagem2, novaImagem2);
     alterarImagem(seletorImagem3, novaImagem3);
+    
   }
 
   const observer = new MutationObserver(() => {
