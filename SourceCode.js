@@ -5,7 +5,7 @@
 
   // img url
   const novaImagem1 =
-    "https://github.com/TecnicComSono/Platform-Destroyer-Client/blob/main/imagem_2025-01-21_175108452-removebg-preview.png?raw=true";
+    "https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/fonteslogo1";
   const novaImagem2 = novaImagem1;
   const novaImagem3 = novaImagem1;
 
