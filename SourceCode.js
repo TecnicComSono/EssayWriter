@@ -5,9 +5,10 @@
 
   // img url
   const novaImagem1 =
-    "https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/fonteslogo1";
+    "https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/fonteslogo1.png";
   const novaImagem2 = novaImagem1;
   const novaImagem3 = novaImagem1;
+  const logoMini = "https://i.ibb.co/j5cJ5Hf/imagem-2024-12-04-194348740-removebg-preview.png";
 
   // img
   const seletorImagem1 =
@@ -16,7 +17,9 @@
     "#root > div.MuiBox-root.css-z0hhne > div.MuiBox-root.css-a60g7b > div > div.simplebar-wrapper > div.simplebar-mask > div > div > div > div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-1.css-o37zhb > div.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.MuiGrid-grid-lg-3.css-ja4s3e > img";
   const seletorImagem3 =
     "#root > div.MuiBox-root.css-z0hhne > div.MuiBox-root.css-a60g7b > div > div.simplebar-wrapper > div.simplebar-mask > div > div > div > div.css-gsuwte > div > div > div.css-gsuwte > div > div.MuiGrid-root.MuiGrid-container.css-1d3bbye > div.MuiGrid-root.MuiGrid-container.MuiGrid-item.MuiGrid-spacing-xs-1.MuiGrid-grid-xs-12.css-1k7k5az > div:nth-child(1)";
-    const selectMiniLogo = "#root > div.MuiBox-root.css-z0hhne > div.MuiDrawer-root.MuiDrawer-docked.css-1wa2t5h > div > div > div.simplebar-wrapper > div.simplebar-mask > div > div > div > div > div.MuiBox-root.css-1j0h67t > img";
+  const selectMiniLogo =
+    "#root > div.MuiBox-root.css-z0hhne > div.MuiDrawer-root.MuiDrawer-docked.css-1wa2t5h > div > div > div.simplebar-wrapper > div.simplebar-mask > div > div > div > div > div.MuiBox-root.css-1j0h67t > img";
+  
   function alterarImagem(seletor, novaSrc) {
     const imagem = document.querySelector(seletor);
     if (imagem) {
@@ -28,7 +31,7 @@
     alterarImagem(seletorImagem1, novaImagem1);
     alterarImagem(seletorImagem2, novaImagem2);
     alterarImagem(seletorImagem3, novaImagem3);
-    
+    alterarImagem(selectMiniLogo, LogoMini);
   }
 
   const observer = new MutationObserver(() => {
