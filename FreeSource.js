@@ -1,11 +1,11 @@
 (function () {
   "use strict";
 
-  var version = "V2.0.0";
+  var version = "V3.1.4";
 
   // img url
   const novaImagem1 =
-    "https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/fonteslogo1.png";
+    "https://cdn.jsdelivr.net/gh/TecnicComSono/FontesClient/fonteslogo1.png";
   const novaImagem2 = novaImagem1;
   const novaImagem3 = novaImagem1;
   const logoMini = "https://i.ibb.co/j5cJ5Hf/imagem-2024-12-04-194348740-removebg-preview.png";
@@ -60,7 +60,7 @@
 
   function OnekoLoad() {
     const GIF_URL =
-      "https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client/oneko.gif";
+      "https://cdn.jsdelivr.net/gh/TecnicComSono/FontesClient/oneko.gif";
 
     const nekoEl = document.createElement("div");
     let nekoPosX = 32,
@@ -329,7 +329,7 @@
     }, duration);
   }
 
-  showToast("Doritus.Client injetado com sucesso!", {
+  showToast("Tema da sala do futuro alterado com sucesso!", {
     icon: "✅",
     includeNickname: false,
   });
@@ -385,7 +385,7 @@
   showLoadingScreen();
 
 var menu = document.createElement("div");
-menu.innerText = "DR";
+menu.innerText = "FT";
 
 menu.style.position = "fixed";
 menu.style.top = "10px";
