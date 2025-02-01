@@ -1,4 +1,6 @@
-# 🍂 DORITUS.CLIENT
+<p align="center">
+    <img src="https://github.com/TecnicComSono/Platform-Destroyer-Client/blob/main/fonteslogo1.png?raw=true" alt="DoritusLogo">
+</p>
 ### Customize your CMSP platforms with a simple code.
 
 ```js
