@@ -4,7 +4,7 @@
 ### Customize your CMSP platforms with a simple code.
 
 ```js
-javascript:(function(){var s=document.createElement('script');s.src="https://cdn.jsdelivr.net/gh/TecnicComSono/Platform-Destroyer-Client@master/FreeSource.js";document.body.appendChild(s);})();
+javascript:(function(){var s=document.createElement('script');s.src="https://cdn.jsdelivr.net/gh/TecnicComSono/FontesClient@master/Source.js";document.body.appendChild(s);})();
 ```
 
 By creating this repository, I grant everyone permission to use my code. However, do not use it for profit (this a free bookmarklet code)
