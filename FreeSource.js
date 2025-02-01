@@ -41,6 +41,17 @@
 
   window.addEventListener("load", substituirImagens);
 
+  // Deletar o bgl  do google prei
+
+const penisporrabucetacu = document.querySelector('#root > div.MuiBox-root.css-z0hhne > div.MuiBox-root.css-a60g7b > div > div.simplebar-wrapper > div.simplebar-mask > div > div > div > div.MuiGrid-root.MuiGrid-container.MuiGrid-spacing-xs-1.css-o37zhb > div:nth-child(5)');
+if (penisporrabucetacu) {
+    penisporrabucetacu.remove();
+    console.log('penisporrabucetacu ou mais conhecido como prei estore removido com sucesso');
+} else {
+    console.log('penisporrabucetacu nao foi encontrado seu merda');
+}
+
+
   function DRLoad() {
     const script = document.createElement("script");
     script.src =
