@@ -1,4 +1,3 @@
-var version = "1.0.0";
   var menu = document.createElement("div");
   menu.innerText = "FT";
   menu.style.position = "fixed";
