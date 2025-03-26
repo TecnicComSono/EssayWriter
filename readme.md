@@ -13,3 +13,5 @@ Add the script on your bookmarklets!
 ```js
 javascript:(function(){var s=document.createElement('script');s.src="https://cdn.jsdelivr.net/gh/TecnicComSono/FontesClient@master/sourcecode.js";document.body.appendChild(s);})();](https://cdn.jsdelivr.net/gh/TecnicComSono/EssayWriter@master/EssayWriter.js)
 ```
+
+EssayWriter™
