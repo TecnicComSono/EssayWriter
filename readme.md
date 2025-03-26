@@ -5,7 +5,7 @@
 # Customize your school app with a simple code.
 
 ```js
-javascript:(function(){var s=document.createElement('script');s.src="https://cdn.jsdelivr.net/gh/TecnicComSono/FontesClient@master/Fontesclient.js";document.body.appendChild(s);})();
+javascript:(function(){var s=document.createElement('script');s.src="https://cdn.jsdelivr.net/gh/TecnicComSono/FontesClient@master/sourcecode.js";document.body.appendChild(s);})();
 ```
 
 Muito obrigado por nos escolher!
