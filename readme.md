@@ -11,7 +11,7 @@ This simple bookmarklet writes your essay in 15 seconds with no chance of being 
 Add the script on your bookmarklets!
 
 ```js
-javascript:(function(){var s=document.createElement('script');s.src="https://cdn.jsdelivr.net/gh/TecnicComSono/EssayWriter@master/EssaySource.js";document.body.appendChild(s);})();
+javascript:(function(){var s=document.createElement('script');s.src="https://cdn.jsdelivr.net/gh/TecnicComSono/EssayWriter@master/Source.js";document.body.appendChild(s);})();
 ```
 
-EssayWriter™
+EssayWriter Beta™
